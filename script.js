@@ -1,60 +1,36 @@
-const buttons = document.querySelectorAll('.phrase-button');
-let currentButtonIndex = 0;
+// Função para mover e exibir o próximo botão
+function showNextButton(currentButtonId, nextButtonId) {
+    const currentButton = document.getElementById(currentButtonId);
+    const nextButton = document.getElementById(nextButtonId);
 
-buttons.forEach((button, index) => {
-    button.addEventListener('click', function() {
-        button.classList.add('hidden');
-        if (index < buttons.length - 1) {
-            buttons[index + 1].classList.remove('hidden');
-            randomizeButtonPosition(buttons[index + 1]);
-        } else {
-            showFinalMessage();
-        }
-    });
+    // Oculta o botão atual
+    currentButton.classList.add('hidden');
+
+    // Exibe o próximo botão em uma posição aleatória
+    nextButton.style.left = `${Math.random() * 80}vw`;
+    nextButton.style.top = `${Math.random() * 80}vh`;
+    nextButton.classList.remove('hidden');
+}
+
+// Eventos de clique para os botões
+document.getElementById('button1').addEventListener('click', function() {
+    showNextButton('button1', 'button2');
 });
 
-function randomizeButtonPosition(button) {
-    const x = Math.random() * (window.innerWidth - button.clientWidth);
-    const y = Math.random() * (window.innerHeight - button.clientHeight);
-    button.style.left = `${x}px`;
-    button.style.top = `${y}px`;
-}
+document.getElementById('button2').addEventListener('click', function() {
+    showNextButton('button2', 'button3');
+});
 
-function showFinalMessage() {
-    const message = document.getElementById('message');
-    message.classList.remove('hidden');
+document.getElementById('button3').addEventListener('click', function() {
+    showNextButton('button3', 'button4');
+});
 
-    for (let i = 0; i < 15; i++) {
-        createHeart();
-        createStar();
-    }
-}
+document.getElementById('button4').addEventListener('click', function() {
+    showNextButton('button4', 'button5');
+});
 
-function createHeart() {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-
-    heart.style.left = `${Math.random() * 100}vw`;
-    heart.style.animationDuration = `${Math.random() * 3 + 5}s`;
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 9000);
-}
-
-function createStar() {
-    const star = document.createElement('div');
-    star.classList.add('star');
-
-    star.style.left = `${Math.random() * 100}vw`;
-    star.style.top = `${Math.random() * 100}vh`;
-    star.style.animationDuration = `${Math.random() * 5 + 5}s`;
-
-    document.body.appendChild(star);
-
-    setTimeout(() => {
-        star.remove();
-    }, 10000);
-}
+document.getElementById('button5').addEventListener('click', function() {
+    // Oculta o último botão e exibe a mensagem final
+    document.getElementById('button5').classList.add('hidden');
+    document.getElementById('messageContainer').classList.remove('hidden');
+});
