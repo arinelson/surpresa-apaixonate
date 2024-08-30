@@ -39,53 +39,64 @@ button.phrase-button:hover {
     display: none;
 }
 
+/* Estilo da mensagem final de declaração */
 #message {
-    font-size: 26px;
-    color: #fff;
-    margin-top: 30px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 2s ease-in;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    font-size: 32px; /* Aumentar o tamanho da fonte para destaque */
+    color: #fff; /* Cor branca para contraste */
+    margin-top: 20px;
+    padding: 20px; /* Adicionar espaçamento interno */
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente para destaque */
+    border-radius: 15px; /* Bordas arredondadas para suavidade */
+    text-align: center; /* Centralizar o texto */
+    max-width: 80%; /* Limitar a largura do texto para melhor legibilidade */
+    margin: 20px auto; /* Centralizar o bloco na tela */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Adicionar sombra para destaque */
+    line-height: 1.5; /* Melhorar o espaçamento entre linhas */
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
+/* Ajustes de responsividade para telas menores */
+@media (max-width: 768px) {
+    #message {
+        font-size: 24px; /* Reduzir o tamanho da fonte em telas menores */
+        padding: 15px; /* Ajustar o espaçamento interno */
     }
 }
 
-@keyframes romanticElements {
-    0% {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(-100vh);
-        opacity: 1;
-    }
-}
-
+/* Estilo dos corações e estrelas animados */
 .heart, .star {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     position: absolute;
-    background-color: #ff69b4;
-    clip-path: polygon(50% 0%, 61% 25%, 98% 35%, 75% 58%, 80% 100%, 50% 75%, 20% 100%, 25% 58%, 2% 35%, 39% 25%);
-    animation: romanticElements 7s ease-in infinite;
+    background-color: #ff6b6b;
+    animation: floatingHearts 9s ease-in infinite;
 }
 
+/* Ajuste específico para estrelas */
 .star {
-    background-color: #ffdfba;
-    clip-path: polygon(50% 0%, 60% 35%, 98% 35%, 68% 58%, 75% 100%, 50% 75%, 25% 100%, 32% 58%, 2% 35%, 40% 35%);
+    background-color: #ffd700; /* Cor dourada para as estrelas */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* Animação dos corações */
+@keyframes floatingHearts {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Animação das estrelas */
+@keyframes floatingStars {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
 }
