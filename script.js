@@ -1,43 +1,37 @@
-document.getElementById('button1').addEventListener('click', function() {
-    this.classList.add('hidden');
-    document.getElementById('button2').classList.remove('hidden');
+let score = 0;
+let timeLeft = 10;
+let timerInterval;
+
+document.getElementById('heart-button').addEventListener('click', () => {
+    score++;
+    document.getElementById('score').textContent = `Pontos: ${score}`;
 });
 
-document.getElementById('button2').addEventListener('click', function() {
-    this.classList.add('hidden');
-    document.getElementById('button3').classList.remove('hidden');
-});
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        document.getElementById('timer').textContent = `Tempo restante: ${timeLeft}s`;
 
-document.getElementById('button3').addEventListener('click', function() {
-    this.classList.add('hidden');
-    document.getElementById('button4').classList.remove('hidden');
-});
-
-document.getElementById('button4').addEventListener('click', function() {
-    this.classList.add('hidden');
-    document.getElementById('button5').classList.remove('hidden');
-});
-
-document.getElementById('button5').addEventListener('click', function() {
-    this.classList.add('hidden');
-    const message = document.getElementById('message');
-    message.classList.remove('hidden');
-
-    for (let i = 0; i < 30; i++) {
-        createHeart();
-    }
-});
-
-function createHeart() {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-
-    heart.style.left = `${Math.random() * 100}vw`;
-    heart.style.animationDuration = `${Math.random() * 2 + 3}s`;
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 5000);
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            endGame();
+        }
+    }, 1000);
 }
+
+function endGame() {
+    document.getElementById('heart-button').disabled = true;
+    let message = `Parabéns! Você fez ${score} pontos!`;
+    
+    if (score >= 20) {
+        message += " Meu amor, minha chatinha, minha vida, eu te amo cada vez mais a cada dia!";
+    } else {
+        message += " Ana Clara, meu amor, minha chatinha, minha vida, você é o meu melhor presente!";
+    }
+
+    document.getElementById('message').textContent = message;
+}
+
+window.onload = () => {
+    startTimer();
+};
