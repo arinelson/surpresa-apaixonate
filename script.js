@@ -1,12 +1,34 @@
-document.getElementById('surpriseButton').addEventListener('click', function() {
+const buttons = document.querySelectorAll('.phrase-button');
+let currentButtonIndex = 0;
+
+buttons.forEach((button, index) => {
+    button.addEventListener('click', function() {
+        button.classList.add('hidden');
+        if (index < buttons.length - 1) {
+            buttons[index + 1].classList.remove('hidden');
+            randomizeButtonPosition(buttons[index + 1]);
+        } else {
+            showFinalMessage();
+        }
+    });
+});
+
+function randomizeButtonPosition(button) {
+    const x = Math.random() * (window.innerWidth - button.clientWidth);
+    const y = Math.random() * (window.innerHeight - button.clientHeight);
+    button.style.left = `${x}px`;
+    button.style.top = `${y}px`;
+}
+
+function showFinalMessage() {
     const message = document.getElementById('message');
     message.classList.remove('hidden');
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 15; i++) {
         createHeart();
         createStar();
     }
-});
+}
 
 function createHeart() {
     const heart = document.createElement('div');
