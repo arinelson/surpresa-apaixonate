@@ -39,64 +39,30 @@ button.phrase-button:hover {
     display: none;
 }
 
-/* Estilo da mensagem final de declaração */
+
+
 #message {
-    font-size: 32px; /* Aumentar o tamanho da fonte para destaque */
-    color: #fff; /* Cor branca para contraste */
-    margin-top: 20px;
-    padding: 20px; /* Adicionar espaçamento interno */
-    background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente para destaque */
-    border-radius: 15px; /* Bordas arredondadas para suavidade */
-    text-align: center; /* Centralizar o texto */
-    max-width: 80%; /* Limitar a largura do texto para melhor legibilidade */
-    margin: 20px auto; /* Centralizar o bloco na tela */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Adicionar sombra para destaque */
-    line-height: 1.5; /* Melhorar o espaçamento entre linhas */
+    font-size: 24px; 
+    color: #fff; 
+    padding: 20px; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    border-radius: 15px; 
+    text-align: center; 
+    max-width: 90%; 
+    margin: 0 auto; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    line-height: 1.6;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
 }
 
-/* Ajustes de responsividade para telas menores */
+
 @media (max-width: 768px) {
     #message {
-        font-size: 24px; /* Reduzir o tamanho da fonte em telas menores */
-        padding: 15px; /* Ajustar o espaçamento interno */
-    }
-}
-
-/* Estilo dos corações e estrelas animados */
-.heart, .star {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    background-color: #ff6b6b;
-    animation: floatingHearts 9s ease-in infinite;
-}
-
-/* Ajuste específico para estrelas */
-.star {
-    background-color: #ffd700; /* Cor dourada para as estrelas */
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-}
-
-/* Animação dos corações */
-@keyframes floatingHearts {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) rotate(720deg);
-        opacity: 0;
-    }
-}
-
-/* Animação das estrelas */
-@keyframes floatingStars {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) rotate(360deg);
-        opacity: 0;
+        font-size: 20px; 
+        padding: 15px; 
+        line-height: 1.5; 
     }
 }
