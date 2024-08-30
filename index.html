@@ -3,25 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surpresa para Ana Clara</title>
+    <title>Jogo do Amor</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <button id="button1" class="phraseButton">Meu</button>
-        <button id="button2" class="phraseButton hidden">amor,</button>
-        <button id="button3" class="phraseButton hidden">minha</button>
-        <button id="button4" class="phraseButton hidden">chatinha,</button>
-        <button id="button5" class="phraseButton hidden">minha vida.</button>
-        
-        <div id="message" class="hidden">
-            <p>
-                Ana Clara, <br><br>
-                Desde que você entrou na minha vida, tudo mudou para melhor. Você é o motivo do meu sorriso todos os dias, meu conforto nas horas difíceis e minha alegria constante. Nestes dois meses juntos, aprendi o verdadeiro significado de amor, e é ao seu lado que quero estar sempre. <br><br>
-                Eu te amo profundamente, meu amor, minha chatinha, minha vida. Obrigado por cada momento, por cada riso e por cada abraço. Não consigo imaginar um dia sem você ao meu lado. <br><br>
-                Você é o meu tudo e eu prometo te amar e te cuidar para sempre.
-            </p>
+        <h1>Jogo do Amor</h1>
+        <p class="instructions">Clique no coração o máximo de vezes possível em 10 segundos!</p>
+        <div class="game-area">
+            <button id="heart-button">❤️</button>
+            <p id="score">Pontos: 0</p>
         </div>
+        <p id="timer">Tempo restante: 10s</p>
+        <p id="message"></p>
     </div>
     <script src="script.js"></script>
 </body>
